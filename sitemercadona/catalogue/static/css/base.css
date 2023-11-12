@@ -1,0 +1,36 @@
+body{
+    background-color: rgb(7, 212, 239);
+}
+table {
+    border-collapse: collapse;
+    border : 2px solid rgb(0, 0, 0);
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+  }
+  td, th {
+    border: 1px solid rgb(0, 0, 0);
+    padding: 10px 20px;
+  }
+  th {
+    background-color: rgb(255, 255, 255);
+  }
+  .connexion{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #625e5e;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    width: 300px;
+    height: 300px;
+    text-align: center;
+}
+.ajout{
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #625e5e;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    width: 600px;
+    height: 600px;
+    text-align: left;
+}

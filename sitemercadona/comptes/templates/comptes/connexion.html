@@ -1,0 +1,24 @@
+{% extends 'comptes/base.html' %}
+{% load static %}
+
+{% block titre %}MERCADONA : Géant du retail en Espagne - site de catalogue en ligne, suivez nos promotions{% endblock %}
+
+{% block styles %}{% endblock %}
+
+
+{% block body %}
+<h1>Page de Connexion Administrateur</h1>
+<form action="." method="POST" class='connexion'> 
+    <p>Connexion</p>
+    {% csrf_token %}
+    <p>
+        <label for="username">Nom d'utilisateur</label>
+        <input type="text" name="username" id="username">
+    </p>
+    <p>
+        <label for="password">Mot de passe</label>
+        <input type="password" name="password" id="password">
+    </p>
+    <input type="submit" value ="Se connecter">
+</form>
+{% endblock %}

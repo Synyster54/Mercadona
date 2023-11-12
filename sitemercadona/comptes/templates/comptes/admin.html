@@ -1,0 +1,18 @@
+{% extends 'catalogue/base.html' %}
+{% load static %}
+
+{% block titre %}MERCADONA : Géant du retail en Espagne - site de catalogue en ligne, suivez nos promotions{% endblock %}
+
+{% block styles %}{% endblock %}
+
+{% if envoi %} Votre article a bien été ajouté {% endif %}
+
+{% block body %}
+<h1>Bienvenue dans votre espace Administrateur</h1>
+<div class="list-group">
+    <a href="/catalogue/add_article/" class="list-group-item list-group-item-action">Ajouter un article au catalogue</a>
+    <a href="/comptes/inscription/" class="list-group-item list-group-item-action">Ajouter un nouvel administrateur</a>
+    <a href="/catalogue/" class="list-group-item list-group-item-action">Acceder au catalgue pour ajouter une promotion</a>
+</div>
+{% endblock %}
+

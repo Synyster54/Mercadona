@@ -1,0 +1,61 @@
+{% extends 'catalogue/base.html' %}
+{% load static %}
+
+{% block titre %}MERCADONA : Géant du retail en Espagne - site de catalogue en ligne, suivez nos promotions{% endblock %}
+
+{% block styles %}{% endblock %}
+
+{% block body %}
+<!--Contenu propre à cette page-->
+<main role="main">
+ <h2>Bienvenue sur le catalogue : Venez découvrir nos offres et promotions !</h2>
+  <!-- Mise en place du menu de tri -->
+    <form action="." methode="POST"><!--Menu de tri des articles-->
+      {% csrf_token %}
+      {{ form }}
+      <input type = "submit" value = "Trier">
+    </form>
+  <table><!--Tableau de presentation des produits-->
+    <caption>Liste des produits</caption>
+    <thead class="container text-center">
+      <tr class="container text-center">
+        <th class="col">Catégorie</th>
+        <th class="col">Produits</th>
+        <th class="col">Descriptions</th>
+        <th class="col">Images</th>
+        <th class="col">Prix</th>
+        {% if user.is_authenticated %}
+        <th class="col">Promotion</th>
+        {% endif %}
+      </tr>
+    </thead>
+    <tbody>
+
+      <!--Faire appel à la BDD pour generer les lignes du tableau-->
+      {% for article in catalogue %}
+      <tr class="container text-center">
+        <td class="col">{{article.categorie}}</td>
+        <td class="col">{{article.libelle}}</td>
+        <td class="col">{{article.description}}</td>
+        <td class="col"><img src="{{ article.image.url }}"  alt="{{ article.image.url }}" width = "96" height = "86"></td>
+        {% if article.promo_article == article.prix %} <!--Si le prix de l'article est égal à son prix promo, alors pas de promo-->
+          <td class="col">{{article.prix}}</td>
+          {% if user.is_authenticated %}
+            <td class="col"><a href="{% url 'add_promotion' article.id %}">Ajouter une promotion</a></td>
+          {% endif %}
+        {% else %}<!--Sinon, afficher le prix promo en rouge gras-->
+          <td class="col"><b style='color:red;'> {{article.promo_article}} </b></td>
+          {% if user.is_authenticated %}
+            <td>Une promotion est deja en cours</td>
+          {% endif %}
+        {% endif %}
+      </tr>
+      {% endfor %}
+    </tbody>
+    <tfoot></tfoot>
+  </table>
+</main>
+{% endblock %} 
+
+
+

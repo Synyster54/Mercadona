@@ -1,0 +1,19 @@
+{% extends 'catalogue/base.html' %}
+{% load static %}
+
+{% block titre %}MERCADONA : Géant du retail en Espagne - site de catalogue en ligne, suivez nos promotions{% endblock %}
+
+{% block styles %}{% endblock %}
+
+{% if envoi %} Votre article a bien été ajouté {% endif %}
+
+{% block body %}
+<h2>Ajouter un article ici :</h2>
+<form action="." method="POST" enctype="multipart/form-data" class='ajout'> 
+    <p>Article à ajouter :</p>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type = "submit" value = "Ajouter">
+</form>
+{% endblock %}
+
