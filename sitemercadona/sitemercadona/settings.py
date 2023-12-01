@@ -91,19 +91,21 @@ WSGI_APPLICATION = 'sitemercadona.wsgi.application'
 #}
 #on utilise une base de données postgresql avec ses données de connexion
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#        'NAME': 'mercadona',
-#        'USER': 'postgres',
-#        'PASSWORD': '24081990',
-#        'HOST': 'localhost',
-#        'PORT': '5432',
-#    }
-#}
 DATABASES = {
-    'default': dj_database_url.parse(config('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mercadona',
+        'USER': 'postgres',
+        'PASSWORD': '24081990',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
+#DATABASES = {
+    #'default': dj_database_url.parse(config('DATABASE_URL'))
+#}
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
